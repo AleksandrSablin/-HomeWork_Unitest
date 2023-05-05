@@ -1,6 +1,12 @@
 import unittest
 from utils import arrs
 
+# @pytest.mark.parametrize('a, b, c, result', [([1, 2, 3], 1, None, [2, 3]),
+#                                              ([], None, None, []),
+#                                              ([1, 2, 3, 4], -5, None, [1, 2, 3, 4]),
+#                                              ([1, 2, 3, 4], -3, None, [2, 3, 4]),
+#                                              ([1, 2, 3, 4], -3, -4, [])
+#                                              ]
 
 class TestArrs(unittest.TestCase):
 
@@ -11,3 +17,7 @@ class TestArrs(unittest.TestCase):
     def test_slice(self):
         self.assertEqual(arrs.my_slice([1, 2, 3, 4], 1, 3), [2, 3])
         self.assertEqual(arrs.my_slice([1, 2, 3], 1), [2, 3])
+        self.assertEqual(arrs.my_slice([]), [])
+        self.assertEqual(arrs.my_slice([1, 2, 3, 4], -5), [1, 2, 3, 4])
+        self.assertEqual(arrs.my_slice([1, 2, 3, 4], -3), [2, 3, 4])
+
